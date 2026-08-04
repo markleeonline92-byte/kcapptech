@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="KC APP TECH – Building the Future with Intelligent Technology. AI Solutions, Automation, Cloud, Analytics &amp; Cyber Security." />
+  <meta name="theme-color" content="#06070A" />
+  <title>KC APP TECH – Intelligent Technology Platform</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       LOADING SCREEN
+  ═══════════════════════════════════════════ -->
+  <div id="loader" role="status" aria-label="Loading KC APP TECH">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path class="logo-path" d="M40 4 L72 22 L72 58 L40 76 L8 58 L8 22 Z" stroke="url(#lg1)" stroke-width="2"
+            fill="none" />
+          <path class="logo-path-inner" d="M40 16 L62 28 L62 52 L40 64 L18 52 L18 28 Z" stroke="url(#lg2)"
+            stroke-width="1.5" fill="none" opacity="0.6" />
+          <circle cx="40" cy="40" r="8" fill="url(#lg1)" opacity="0.9" />
+          <defs>
+            <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00D4FF" />
+              <stop offset="100%" stop-color="#7B61FF" />
+            </linearGradient>
+            <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7B61FF" />
+              <stop offset="100%" stop-color="#00F0FF" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="loader-brand">KC APP TECH</span>
+      </div>
+      <div class="loader-bar-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+      <p class="loader-text">Initializing Systems<span class="dots">...</span></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       CURSOR EFFECTS
+  ═══════════════════════════════════════════ -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="KC APP TECH Home">
+        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 2 L36 11 L36 29 L20 38 L4 29 L4 11 Z" stroke="url(#navLg)" stroke-width="1.5" fill="none" />
+          <circle cx="20" cy="20" r="5" fill="url(#navLg)" />
+          <defs>
+            <linearGradient id="navLg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00D4FF" />
+              <stop offset="100%" stop-color="#7B61FF" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>KC APP TECH</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"
+        aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu" role="menubar">
+        <li role="none"><a href="#home" role="menuitem" class="nav-link active">Home</a></li>
+        <li role="none"><a href="#services" role="menuitem" class="nav-link">Services</a></li>
+        <li role="none"><a href="#contact" role="menuitem" class="nav-link">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn-primary btn-sm nav-cta magnetic-btn" id="navCta">
+        <span>Start Free</span>
+        <div class="btn-glow"></div>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="home" aria-label="Hero – Building the Future">
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
+    <!-- Background layers -->
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-fog" aria-hidden="true"></div>
+    <div class="hero-orb orb-1" aria-hidden="true"></div>
+    <div class="hero-orb orb-2" aria-hidden="true"></div>
+    <div class="hero-orb orb-3" aria-hidden="true"></div>
+
+    <div class="hero-content reveal-up">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Next-Generation Technology Platform</span>
+      </div>
+
+      <h1 class="hero-headline">
+        Building the Future<br />
+        with <span class="gradient-text">Intelligent</span><br />
+        Technology
+      </h1>
+
+      <p class="hero-sub">
+        AI Solutions &nbsp;•&nbsp; Automation &nbsp;•&nbsp; Cloud &nbsp;•&nbsp; Analytics &nbsp;•&nbsp; Cyber Security
+      </p>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary magnetic-btn" aria-label="Explore Services">
+          <span>Explore Services</span>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <div class="btn-glow"></div>
+          <div class="btn-ripple" aria-hidden="true"></div>
+        </a>
+        <a href="#demo" class="btn btn-ghost magnetic-btn" aria-label="Watch Demo">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" />
+            <path d="M10 8l6 4-6 4V8z" fill="currentColor" />
+          </svg>
+          <span>Watch Demo</span>
+        </a>
+      </div>
+
+      <div class="hero-stats" aria-label="Key statistics">
+        <div class="hero-stat">
+          <strong>250+</strong><span>Projects</span>
+        </div>
+        <div class="hero-stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat">
+          <strong>120+</strong><span>Clients</span>
+        </div>
+        <div class="hero-stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat">
+          <strong>99%</strong><span>Success Rate</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Futuristic Illustration -->
+    <div class="hero-illustration reveal-right" aria-hidden="true">
+      <div class="illus-sphere">
+        <div class="illus-ring ring-1"></div>
+        <div class="illus-ring ring-2"></div>
+        <div class="illus-ring ring-3"></div>
+        <div class="illus-core">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Neural network nodes -->
+            <g opacity="0.9">
+              <circle cx="100" cy="100" r="18" fill="url(#brain)" opacity="0.95" />
+              <!-- Layer 1 -->
+              <circle cx="50" cy="60" r="8" fill="#00D4FF" opacity="0.8" />
+              <circle cx="150" cy="60" r="8" fill="#7B61FF" opacity="0.8" />
+              <circle cx="50" cy="140" r="8" fill="#7B61FF" opacity="0.8" />
+              <circle cx="150" cy="140" r="8" fill="#00F0FF" opacity="0.8" />
+              <!-- Layer 2 -->
+              <circle cx="25" cy="100" r="6" fill="#00D4FF" opacity="0.6" />
+              <circle cx="175" cy="100" r="6" fill="#7B61FF" opacity="0.6" />
+              <circle cx="100" cy="30" r="6" fill="#00F0FF" opacity="0.6" />
+              <circle cx="100" cy="170" r="6" fill="#00D4FF" opacity="0.6" />
+              <!-- Connections -->
+              <line x1="100" y1="100" x2="50" y2="60" stroke="url(#conn)" stroke-width="1.2" opacity="0.5" />
+              <line x1="100" y1="100" x2="150" y2="60" stroke="url(#conn)" stroke-width="1.2" opacity="0.5" />
+              <line x1="100" y1="100" x2="50" y2="140" stroke="url(#conn)" stroke-width="1.2" opacity="0.5" />
+              <line x1="100" y1="100" x2="150" y2="140" stroke="url(#conn)" stroke-width="1.2" opacity="0.5" />
+              <line x1="50" y1="60" x2="25" y2="100" stroke="#00D4FF" stroke-width="0.8" opacity="0.4" />
+              <line x1="50" y1="60" x2="100" y2="30" stroke="#00D4FF" stroke-width="0.8" opacity="0.4" />
+              <line x1="150" y1="60" x2="175" y2="100" stroke="#7B61FF" stroke-width="0.8" opacity="0.4" />
+              <line x1="150" y1="60" x2="100" y2="30" stroke="#7B61FF" stroke-width="0.8" opacity="0.4" />
+              <line x1="50" y1="140" x2="25" y2="100" stroke="#7B61FF" stroke-width="0.8" opacity="0.4" />
+              <line x1="50" y1="140" x2="100" y2="170" stroke="#7B61FF" stroke-width="0.8" opacity="0.4" />
+              <line x1="150" y1="140" x2="175" y2="100" stroke="#00F0FF" stroke-width="0.8" opacity="0.4" />
+              <line x1="150" y1="140" x2="100" y2="170" stroke="#00F0FF" stroke-width="0.8" opacity="0.4" />
+              <!-- Hex pattern -->
+              <polygon points="100,82 114,91 114,109 100,118 86,109 86,91" fill="none" stroke="#00D4FF" stroke-width="1"
+                opacity="0.6" />
+            </g>
+            <!-- Circuit traces -->
+            <path d="M25 100 L10 100 L10 30 L100 30" stroke="#00D4FF" stroke-width="0.8" fill="none" opacity="0.3" />
+            <path d="M175 100 L190 100 L190 170 L100 170" stroke="#7B61FF" stroke-width="0.8" fill="none"
+              opacity="0.3" />
+            <defs>
+              <radialGradient id="brain" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#00F0FF" />
+                <stop offset="100%" stop-color="#7B61FF" />
+              </radialGradient>
+              <linearGradient id="conn" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00D4FF" />
+                <stop offset="100%" stop-color="#7B61FF" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <!-- Floating data points -->
+        <div class="data-point dp-1"></div>
+        <div class="data-point dp-2"></div>
+        <div class="data-point dp-3"></div>
+        <div class="data-point dp-4"></div>
+        <div class="data-point dp-5"></div>
+        <div class="data-point dp-6"></div>
+        <!-- Hexagons -->
+        <div class="hex hex-1"></div>
+        <div class="hex hex-2"></div>
+        <div class="hex hex-3"></div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-label="Scroll down">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="services" id="services" aria-labelledby="servicesTitle">
+    <div class="section-bg-glow glow-right" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Core Capabilities</span>
+        <h2 id="servicesTitle">Our <span class="gradient-text">Services</span></h2>
+        <p>End-to-end technology services built to transform industries and accelerate growth.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-card reveal-up" tabindex="0" aria-label="Website Development service">
+          <div class="service-icon-wrap">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <rect x="4" y="8" width="40" height="30" rx="3" stroke="url(#si1)" stroke-width="2" fill="none" />
+                <path d="M4 16h40" stroke="url(#si1)" stroke-width="1.5" />
+                <circle cx="10" cy="12" r="2" fill="#00D4FF" opacity="0.8" />
+                <circle cx="17" cy="12" r="2" fill="#7B61FF" opacity="0.8" />
+                <circle cx="24" cy="12" r="2" fill="#00F0FF" opacity="0.8" />
+                <path d="M12 24h8M12 30h14M28 24h8" stroke="#00D4FF" stroke-width="1.5" stroke-linecap="round"
+                  opacity="0.7" />
+                <path d="M20 38v4M16 42h16" stroke="url(#si1)" stroke-width="1.5" stroke-linecap="round" />
+                <defs>
+                  <linearGradient id="si1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00D4FF" />
+                    <stop offset="100%" stop-color="#7B61FF" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <h3>Website Development</h3>
+          <p>Stunning, high-performance websites crafted with modern frameworks — from landing pages to full-scale
+            corporate portals, optimized for speed and SEO.</p>
+          <a href="#contact" class="service-link">Learn more <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg></a>
+          <div class="card-glow" aria-hidden="true"></div>
+        </article>
+
+        <article class="service-card reveal-up" tabindex="0" aria-label="Mobile App Development service">
+          <div class="service-icon-wrap">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <rect x="13" y="4" width="22" height="40" rx="4" stroke="url(#si2)" stroke-width="2" fill="none" />
+                <path d="M13 12h22M13 36h22" stroke="url(#si2)" stroke-width="1.5" opacity="0.6" />
+                <circle cx="24" cy="40" r="2" fill="#7B61FF" opacity="0.8" />
+                <rect x="19" y="7" width="10" height="2" rx="1" fill="#00D4FF" opacity="0.6" />
+                <path d="M18 20h12M18 25h8M18 30h10" stroke="#00F0FF" stroke-width="1.5" stroke-linecap="round"
+                  opacity="0.7" />
+                <defs>
+                  <linearGradient id="si2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#7B61FF" />
+                    <stop offset="100%" stop-color="#00F0FF" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <h3>Mobile App Development</h3>
+          <p>Native and cross-platform mobile apps for iOS and Android — intuitive UX, blazing performance, and seamless
+            integration with your existing systems.</p>
+          <a href="#contact" class="service-link">Learn more <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg></a>
+          <div class="card-glow" aria-hidden="true"></div>
+        </article>
+
+        <article class="service-card reveal-up" tabindex="0" aria-label="Web Based App Development service">
+          <div class="service-icon-wrap">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="18" stroke="url(#si3)" stroke-width="2" fill="none" />
+                <path d="M6 24h36" stroke="url(#si3)" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+                <ellipse cx="24" cy="24" rx="8" ry="18" stroke="#00D4FF" stroke-width="1.5" fill="none" opacity="0.6" />
+                <path d="M10 14c3.5 2 8.5 3 14 3s10.5-1 14-3" stroke="#7B61FF" stroke-width="1.2" fill="none"
+                  opacity="0.6" />
+                <path d="M10 34c3.5-2 8.5-3 14-3s10.5 1 14 3" stroke="#7B61FF" stroke-width="1.2" fill="none"
+                  opacity="0.6" />
+                <circle cx="24" cy="24" r="4" fill="url(#si3)" opacity="0.9" />
+                <defs>
+                  <linearGradient id="si3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00D4FF" />
+                    <stop offset="100%" stop-color="#00F0FF" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <h3>Web Based App</h3>
+          <p>Powerful browser-based applications — SaaS dashboards, enterprise tools, and real-time platforms built with
+            modern web technologies, accessible from any device.</p>
+          <a href="#contact" class="service-link">Learn more <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg></a>
+          <div class="card-glow" aria-hidden="true"></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════════
+       TIMELINE
+  ═══════════════════════════════════════════ -->
+  <section class="timeline" id="timeline" aria-labelledby="timelineTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Our Journey</span>
+        <h2 id="timelineTitle">Milestones that <span class="gradient-text">Shaped Us</span></h2>
+      </div>
+      <div class="timeline-track" role="list">
+        <div class="timeline-line" aria-hidden="true">
+          <div class="timeline-line-fill" id="timelineFill"></div>
+        </div>
+        <div class="timeline-items">
+
+          <div class="timeline-item reveal-up" role="listitem" tabindex="0">
+            <div class="t-dot"></div>
+            <div class="t-card">
+              <span class="t-year">June 2026</span>
+              <h3>Bizz Catalog</h3>
+              <p>Online Cataloging Service</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-up" role="listitem" tabindex="0">
+            <div class="t-dot"></div>
+            <div class="t-card">
+              <span class="t-year">Aug 2026</span>
+              <h3>App Ecosystem</h3>
+              <p>Multiple App Developed and Listed</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FAQ SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="faq" id="faq" aria-labelledby="faqTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">FAQ</span>
+        <h2 id="faqTitle">Common <span class="gradient-text">Questions</span></h2>
+      </div>
+      <div class="faq-list reveal-up" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+            How quickly can we deploy KC APP TECH on our infrastructure?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="faq-answer" id="faq-1" role="region">
+            <p>Most teams are fully deployed within 48 hours. Our onboarding team provides dedicated support through
+              every step — from initial configuration to your first production model going live.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+            Is KC APP TECH compliant with GDPR, HIPAA, and SOC 2?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="faq-answer" id="faq-2" role="region">
+            <p>Yes. KC APP TECH is SOC 2 Type II certified and GDPR/HIPAA compliant out of the box. All data is
+              encrypted at
+              rest and in transit, and we offer data residency options in the US, EU, and APAC regions.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+            Can we use our existing ML models on the KC APP TECH platform?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="faq-answer" id="faq-3" role="region">
+            <p>Absolutely. KC APP TECH supports all major frameworks including TensorFlow, PyTorch, scikit-learn,
+              XGBoost,
+              and ONNX. You can import existing models via CLI, API, or our visual import wizard.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+            What SLA guarantees does KC APP TECH offer?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="faq-answer" id="faq-4" role="region">
+            <p>Enterprise customers receive a 99.99% uptime SLA with financial guarantees. Our multi-region
+              active-active architecture ensures maximum resilience, with automated failover completing in under 30
+              seconds.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
+            Do you offer custom model training on our proprietary data?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="faq-answer" id="faq-5" role="region">
+            <p>Yes. Our AutoML and fine-tuning suite supports training custom models on your data within KC APP TECH's
+              secure, isolated compute environments. Your data never leaves your tenant's boundaries.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="contact" id="contact" aria-labelledby="contactTitle">
+    <div class="section-bg-glow glow-center" aria-hidden="true"></div>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <span class="section-label">Get in Touch</span>
+          <h2 id="contactTitle">Let's Build<br /><span class="gradient-text">Something</span><br />Incredible</h2>
+          <p>Ready to transform your organization with intelligent technology? Our team is standing by to design a
+            custom solution for your unique challenges.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0116 0z" stroke="currentColor" stroke-width="1.5" />
+                  <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5" />
+                </svg></div>
+              <div><strong>Headquarters</strong><span>Daulatpur, Arambagh, Hooghly WB-712601</span></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    stroke="currentColor" stroke-width="1.5" />
+                  <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.5" />
+                </svg></div>
+              <div><strong>Email</strong><span>pokarkiran@gmail.com</span></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"
+                    stroke="currentColor" stroke-width="1.5" />
+                </svg></div>
+              <div><strong>Phone</strong><span>+91 7001191960</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal-right">
+          <form class="contact-form" id="contactForm" novalidate aria-label="Contact form">
+            <div class="form-group">
+              <input type="text" id="formName" name="name" required autocomplete="name" aria-required="true"
+                placeholder=" " />
+              <label for="formName">Full Name</label>
+              <div class="form-focus-line" aria-hidden="true"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" id="formEmail" name="email" required autocomplete="email" aria-required="true"
+                placeholder=" " />
+              <label for="formEmail">Email Address</label>
+              <div class="form-focus-line" aria-hidden="true"></div>
+            </div>
+            <div class="form-group">
+              <input type="text" id="formCompany" name="company" autocomplete="organization" placeholder=" " />
+              <label for="formCompany">Company</label>
+              <div class="form-focus-line" aria-hidden="true"></div>
+            </div>
+            <div class="form-group form-group--select">
+              <select id="formService" name="service" aria-label="Select a service">
+                <option value="">Select a Service</option>
+                <option value="website">Website Development</option>
+                <option value="mobile">Mobile App Development</option>
+                <option value="webapp">Web Based App</option>
+              </select>
+              <svg class="select-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="form-group">
+              <textarea id="formMessage" name="message" rows="4" required aria-required="true"
+                placeholder=" "></textarea>
+              <label for="formMessage">Your Message</label>
+              <div class="form-focus-line" aria-hidden="true"></div>
+            </div>
+            <button type="submit" class="btn btn-primary w-full magnetic-btn" id="submitBtn" aria-label="Send message">
+              <span>Send Message</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <div class="btn-glow"></div>
+            </button>
+            <p class="form-success" id="formSuccess" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#06070A" />
+      </svg>
+    </div>
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#home" class="nav-logo" aria-label="KC APP TECH">
+              <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path d="M20 2 L36 11 L36 29 L20 38 L4 29 L4 11 Z" stroke="url(#footLg)" stroke-width="1.5"
+                  fill="none" />
+                <circle cx="20" cy="20" r="5" fill="url(#footLg)" />
+                <defs>
+                  <linearGradient id="footLg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00D4FF" />
+                    <stop offset="100%" stop-color="#7B61FF" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span>KC APP TECH</span>
+            </a>
+            <p>Building the future with intelligent technology. Newly launched and already partnering with early enterprise clients.</p>
+          </div>
+          <div class="footer-links-col">
+            <h4>Platform</h4>
+            <ul>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#">Documentation</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h4>Company</h4>
+            <ul>
+
+              <li><a href="#timeline">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-newsletter">
+            <h4>Stay in the loop</h4>
+            <p>Get the latest AI insights and product updates delivered weekly.</p>
+            <form class="newsletter-form" aria-label="Newsletter signup" novalidate>
+              <div class="newsletter-input-wrap">
+                <input type="email" placeholder="your@email.com" aria-label="Email address for newsletter"
+                  autocomplete="email" />
+                <button type="submit" aria-label="Subscribe to newsletter">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 KC APP TECH. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="privacy.html#section-ai-policy">AI Safety Notice</a>
+          <a href="privacy.html#section-cookies">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie Consent">
+    <div class="cookie-banner-inner">
+      <div class="cookie-banner-text">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 2a10 10 0 1010 10 3.5 3.5 0 01-5-3.5 3.5 3.5 0 01-5-5A3.5 3.5 0 0112 2z" />
+        </svg>
+        <p>We use cookies to ensure platform security, analyze traffic, and enhance AI performance. Read our <a
+            href="privacy.html">Privacy Policy</a>.</p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button class="btn btn-ghost btn-sm" id="btnCookieCustomize"
+          onclick="window.location.href='privacy.html#section-cookies'">Preferences</button>
+        <button class="btn btn-primary btn-sm" id="btnCookieAccept">Accept All</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M18 15l-6-6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    </svg>
+  </button>
+
+  <!-- Main JS -->
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>
