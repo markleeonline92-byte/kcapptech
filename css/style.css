@@ -1332,6 +1332,11 @@ section { position: relative; overflow: hidden; }
   gap: 32px;
 }
 
+.privacy-content--single {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
 .privacy-card {
   position: relative;
   background: var(--glass-bg);

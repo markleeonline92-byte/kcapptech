@@ -405,7 +405,7 @@ function initFAQ() {
 /* ────────────────────────────────────────────────────────────
    CONTACT FORM
    ──────────────────────────────────────────────────────────── */
-const CONTACT_SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz1wgFr0Qz4PurScgzGmS8MFexr4uBB3TPiCjPMNzwj4Jb8DiGFRnGEibv8OkFaQf9H/exec';
+const CONTACT_SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxpIAAVCR1j6-yoiHtD9Fg03YMG3M_tIfENELoj_PLrCvsRCJsulYAcvmucFcCZ_-eR/exec';
 
 function initContactForm() {
   const form = $('#contactForm');
